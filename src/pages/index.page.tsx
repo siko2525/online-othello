@@ -23,6 +23,10 @@ const Home = () => {
     });
   };
   useEffect(() => {
+    const cancelId = setInterval(fetchBoard, 500);
+    return () => {
+      clearInterval(cancelId);
+    };
     fetchBoard();
   }, []);
 
